@@ -10,6 +10,8 @@ export class BoredPandaPage {
   login: By = By.css(".login-url");
   emailInput: By = By.name("email");
   passwordInput: By = By.name("password");
+  searchBar: By= By.className(".search-icon");
+  results: By= By.className(".post-cover-container");
 
   constructor(driver: WebDriver) {
     this.driver = driver;
@@ -29,7 +31,11 @@ export class BoredPandaPage {
   }
 
   async doSearch(text: string) {
-    // return this.sendKeys(this.searchBar, `${text}\n`);
+    return this.sendKeys(this.searchBar, `${"cats"}\n`);
+  }
+
+  async getResults(){
+    return this.getText(this.results);
   }
 
   async getHeader2() {
