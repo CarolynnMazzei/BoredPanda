@@ -1,6 +1,7 @@
 import { By, until, WebDriver } from "selenium-webdriver";
 
 
+
 export class BoredPandaPage {
   driver: WebDriver;
  
@@ -10,6 +11,7 @@ export class BoredPandaPage {
   login: By = By.css(".login-url");
   emailInput: By = By.name("email");
   passwordInput: By = By.name("password");
+  searchInput: By = By.name("s");
 
   constructor(driver: WebDriver) {
     this.driver = driver;
@@ -53,6 +55,17 @@ export class BoredPandaPage {
 
   async clickLogin() {
 
+    //console.log("Click Search");
+
+    //await (await this.driver.findElement(By.css(".svg-icon"))).click();
+
+    //console.log("Type name");
+
+    //await this.driver
+   // .findElement(this.searchInput)
+   // .sendKeys("cats");
+
+
     await this.driver.wait(
       until.elementLocated(By.css(".login-url"))
     );
@@ -89,6 +102,8 @@ export class BoredPandaPage {
     await this.driver.wait(
       until.elementLocated(By.css(".user-menu"))
     );
+
+ 
 
   }
 }
